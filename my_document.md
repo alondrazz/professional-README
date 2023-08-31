@@ -1,20 +1,29 @@
-## Title {#title}
+## Table of Contents
+-[Title](#title)
+-[Description](#description)
+-[Installation](#installation)
+-[Usage](#usage)
+-[Contributing](#contributing)
+-[Test](#test)
+-[License](#license)
+
+## Title(#title)
 ...
 
-## Description {#description}
+## Description(#description)
 ...
 
-## Installation {#installation}
+## Installation(#installation)
 ...
 
-## Usage {#usage},
+## Usage(#usage),
 ...
 
-## Contributing {#contributing}
+## Contributing(#contributing)
 ...
 
-## Test {#test}
+## Test(#test)
 ...
 
-## License {#license}
+## License(#license)
 ...

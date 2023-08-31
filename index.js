@@ -5,22 +5,22 @@ console.log("it works");
 // TODO: Create an array of questions for user input
 function renderLicenseBadge(license) {
     console.log('Generating badge for license:', license);
-    switch (license) {
-        case 'MIT':
+        switch (license) {
+          case 'MIT':
             return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
-        case 'Apache':
+          case 'Apache':
             return '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
-        case 'GNU GPLv3':
+          case 'GNU GPLv3':
             return '[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
-        default:
-            return '';
-    }
-}
+          default:
+            return ''
+        }
+      }      
 const questions = [
     {
         type: 'checkbox',
         message: 'Select sections to include in Table of Contents:',
-        name: 'tableOfContents',
+        name:'tableOfContents',
         choices: [
             {
                 name: 'title',
@@ -28,7 +28,7 @@ const questions = [
             {
                 name: 'description',
             },
-            {
+            { 
                 name: 'installation',
             },
             {
@@ -83,7 +83,7 @@ const questions = [
     {
         type: 'list',
         message: 'Choose a license for your project.',
-        choices: ['GNU LGPv3', 'Apache License 2.0', 'MIT License'],
+        choices: [ 'GNU LGPv3', 'Apache License 2.0', 'MIT License'],
         name: 'license',
     },
     {
@@ -96,15 +96,17 @@ const questions = [
         message: 'What is your email address',
         name: 'email',
     }
-
+ 
 ];
 
 function init() {
     inquirer.prompt(questions)
-        .then((answers) => {
-            console.log('User answers:', answers);
+      .then((answers) => {
+        console.log('User answers:', answers);
 
-            const readmeContent = `
+        const videoLink = 'https://drive.google.com/file/d/1ysQTVB7HLFpb6N1I4xcEDhz-x8zaO2uT/view?usp=sharing'
+  
+        const readmeContent = `
   # ${answers.title}
   
   ${renderLicenseBadge(answers.license)}
@@ -124,6 +126,10 @@ function init() {
 
     ## Insallation
     ${answers.installation}
+
+    ## Instruction Video
+    You can watch the instruction video for the project by clicking the link below:
+    [Watch the Instruction Video](${videoLink}
 
     ## Usage
     ${answers.usage}
@@ -149,11 +155,11 @@ function init() {
     - Email: [${answers.email}](mailto:${answers.email})
     `;
 
-            writeToFile('README.md', readmeContent);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        })
+    writeToFile('README.md', readmeContent);
+})
+.catch((error) => {
+    console.error('Error:', error);
+})
 }
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -163,8 +169,8 @@ function writeToFile(fileName, data) {
         } else {
             console.log('File written successfully!');
         }
-    });
-}
+        });
+    }
 // Function call to initialize app
 init();
 
